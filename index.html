@@ -1,1 +1,87 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Habla.IA</title><meta http-equiv="refresh" content="0;url=./portal.html"></head><body><p><a href="./portal.html">Abrir portal Habla.IA</a></p></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habla.IA — Contratación</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="app">
+    <div class="brand"><div class="logo">H</div> Habla.IA</div>
+    <nav>
+      <button type="button" class="btn ghost" id="goLanding">Inicio</button>
+      <button type="button" class="btn ghost" id="goPlanes">Planes</button>
+      <button type="button" class="btn ghost" id="goDash">Mi panel</button>
+      <button type="button" class="btn" id="goAdmin">Intranet</button>
+      <button type="button" class="btn primary" id="goAuth">Entrar</button>
+    </nav>
+  </header>
+  <section id="landing" class="panel on">
+    <div class="hero">
+      <div class="badge">Generación automática de paquetes</div>
+      <h1>Alta, briefing y kit del agente en un solo flujo.</h1>
+      <p>Elige Base, Pro o Plus. El sistema genera prompt, plantillas WhatsApp y email operativo.</p>
+      <button type="button" class="btn primary" id="goStart">Crear cuenta y contratar</button>
+    </div>
+    <div class="grid3" style="margin-top:32px">
+      <div class="card"><h3>Automatizado</h3><p style="color:var(--muted)">Prompt, emails, plantillas y checklist.</p></div>
+      <div class="card"><h3>Por paquete</h3><p style="color:var(--muted)">Base, Pro y Plus.</p></div>
+      <div class="card"><h3>Por sector</h3><p style="color:var(--muted)">Pizzería, clínica o genérico.</p></div>
+    </div>
+  </section>
+  <section id="planes" class="panel"><h2 style="margin-bottom:16px">Planes</h2><div class="grid3" id="planCards"></div></section>
+  <section id="auth" class="panel">
+    <div class="card" style="max-width:480px">
+      <h2>Acceso</h2>
+      <label>Nombre</label><input id="authName" />
+      <label>Email</label><input id="authEmail" type="email" />
+      <label>Contraseña</label><input id="authPass" type="password" />
+      <div class="err" id="authErr"></div>
+      <div style="display:flex;gap:8px;margin-top:16px">
+        <button type="button" class="btn primary" id="btnRegister">Registrarme</button>
+        <button type="button" class="btn" id="btnLogin">Entrar</button>
+      </div>
+    </div>
+  </section>
+  <section id="elegir" class="panel">
+    <div class="steps"><span class="step active">1 Paquete</span><span class="step">2 Pago</span><span class="step">3 Briefing</span></div>
+    <h2>Elige el paquete</h2>
+    <div class="grid3" id="planPick"></div>
+  </section>
+  <section id="pago" class="panel">
+    <div class="steps"><span class="step done">1 Paquete</span><span class="step active">2 Pago</span><span class="step">3 Briefing</span></div>
+    <div class="card" style="max-width:560px">
+      <h2>Pago (simulado)</h2>
+      <p id="pagoResumen" style="color:var(--muted);margin:8px 0 16px"></p>
+      <div class="row"><div><label>Titular</label><input id="ccName" /></div><div><label>Número</label><input id="ccNum" placeholder="4242424242424242" /></div></div>
+      <div class="row"><div><label>Caduca MM/AA</label><input id="ccExp" placeholder="12/28" /></div><div><label>CVC</label><input id="ccCvc" placeholder="123" /></div></div>
+      <label>CIF / NIF</label><input id="ccTax" placeholder="B12345678" />
+      <p class="err" id="pagoErr"></p>
+      <div style="display:flex;gap:8px;margin-top:14px">
+        <button type="button" class="btn primary" id="btnPagar">Pagar y continuar</button>
+        <button type="button" class="btn" id="btnDemoPay">Rellenar tarjeta demo</button>
+      </div>
+    </div>
+  </section>
+  <section id="briefing" class="panel">
+    <div class="steps"><span class="step done">1 Paquete</span><span class="step done">2 Pago</span><span class="step active">3 Briefing</span></div>
+    <h2>Datos para generar el paquete</h2>
+    <form id="briefForm" class="card" novalidate></form>
+  </section>
+  <section id="dashboard" class="panel"><h2>Panel del cliente</h2><div id="dashBody"></div></section>
+  <section id="admin" class="panel">
+    <h2>Intranet</h2>
+    <p style="color:var(--muted);margin:8px 0 16px">PIN 2468</p>
+    <div id="adminGate" class="card" style="max-width:360px">
+      <label>PIN</label><input id="adminPin" type="password" />
+      <button type="button" class="btn primary" id="btnAdminPin" style="margin-top:12px">Entrar</button>
+    </div>
+    <div id="adminBody" class="hidden"></div>
+  </section>
+  <footer>Habla.IA · demo pública</footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
